@@ -4,6 +4,8 @@ import Papa from 'papaparse'
 import Loader from "./Loader";
 import ErrorMessage from "./ErrorMessage";
 import FileImport from "./FileImport";
+import EnergyTypeButton from "./EnergyTypeButton";
+import CostTypeButton from "./CostTypeButton";
 
 // Constants for weather data
 const WEATHER_URL = `https://archive-api.open-meteo.com/v1/archive`;
@@ -30,6 +32,7 @@ function App() {
   const [temperatures, setTemperatures] = useState([]);
   const [combinedData, setCombinedData] = useState([]);
   const [energyType, setEnergyType] = useState('both');
+  const [costType, setCostType] = useState('both');
 
   function handleFileUpload(event) {
     const files = event.target.files;
@@ -63,6 +66,10 @@ function App() {
     setEnergyType(energyType);
   }
 
+  function handleOnCostSet(costType) {
+    setCostType(costType);
+  }
+
   const energyData = combinedData.map(data => {
     switch (energyType) {
       case 'electricity':
@@ -74,6 +81,18 @@ function App() {
           (parseFloat(data["Gas consumption (kWh)"]) || 0);
     }
   });
+
+  const costData = combinedData.map(data => {
+    switch (costType) {
+      case 'electricity':
+        return parseFloat(data["Electricity cost (£)"]) || 0;
+      case 'gas':
+        return parseFloat(data["Gas cost (£)"]) || 0;
+      default:
+        return (parseFloat(data["Electricity cost (£)"]) || 0) +
+          (parseFloat(data["Gas cost (£)"]) || 0);
+    }
+  })
 
   useEffect(() => {
     async function fetchWeatherData() {
@@ -108,10 +127,21 @@ function App() {
       {!isLoading && !error &&
         <>
           <FileImport handleFileUpload={handleFileUpload}/>
-          <Graph temperatures={temperatures} energyData={energyData} dateRange={DEFAULT_DATE_RANGE}/>
-          <button onClick={() => handleOnEnergySet('electricity')}>Electricity</button>
-          <button onClick={() => handleOnEnergySet('gas')}>Gas</button>
-          <button onClick={() => handleOnEnergySet('both')}>Both</button>
+
+          <Graph temperatures={temperatures} data={energyData} dataType={'energy'} dateRange={DEFAULT_DATE_RANGE}/>
+          <Graph temperatures={temperatures} data={costData} dataType={'cost'} dateRange={DEFAULT_DATE_RANGE}/>
+
+          {energyData &&
+            <>
+              <EnergyTypeButton label="Electricity Energy" onClick={() => handleOnEnergySet('electricity')}/>
+              <EnergyTypeButton label="Gas Energy" onClick={() => handleOnEnergySet('gas')}/>
+              <EnergyTypeButton label="Both Energies" onClick={() => handleOnEnergySet('both')}/>
+
+              <CostTypeButton label="Electricity Cost" onClick={() => handleOnCostSet('electricity')}/>
+              <CostTypeButton label="Gas Cost" onClick={() => handleOnCostSet('gas')}/>
+              <CostTypeButton label="Both Costs" onClick={() => handleOnCostSet('both')}/>
+            </>
+          }
         </>
       }
     </div>
