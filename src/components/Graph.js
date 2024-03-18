@@ -1,6 +1,7 @@
 import {Area, AreaChart, CartesianGrid, Label, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
 
 const graphConfig = {
+  graphSize: {width: '100%', height: 300},
   areaMargin: {top: 20, right: 20, left: 15, bottom: 15},
 
   yTickStyle: {stroke: 'blue', strokeWidth: 0.2},
@@ -55,7 +56,7 @@ function Graph({temperatures, data, dataType, dateRange}) {
     }));
 
   return (
-    <ResponsiveContainer width='100%' height={400}>
+    <ResponsiveContainer width={graphConfig.graphSize.width} height={graphConfig.graphSize.height}>
       <AreaChart data={chartData} margin={graphConfig.areaMargin}>
         <defs>
           <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">

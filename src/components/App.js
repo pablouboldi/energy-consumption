@@ -6,6 +6,7 @@ import ErrorMessage from "./ErrorMessage";
 import FileImport from "./FileImport";
 import EnergyTypeButton from "./EnergyTypeButton";
 import CostTypeButton from "./CostTypeButton";
+import CorrelationCoefficient from "./CorrelationCoefficient";
 
 // Constants for weather data
 const WEATHER_URL = `https://archive-api.open-meteo.com/v1/archive`;
@@ -129,9 +130,13 @@ function App() {
           <FileImport handleFileUpload={handleFileUpload}/>
 
           <Graph temperatures={temperatures} data={energyData} dataType={'energy'} dateRange={DEFAULT_DATE_RANGE}/>
+          {energyData.length !== 0 ?
+            <CorrelationCoefficient temperatures={temperatures} data={energyData} dataType={'energy'}/> : null}
           <Graph temperatures={temperatures} data={costData} dataType={'cost'} dateRange={DEFAULT_DATE_RANGE}/>
+          {energyData.length !== 0 ?
+            <CorrelationCoefficient temperatures={temperatures} data={costData} dataType={'cost'}/> : null}
 
-          {energyData &&
+          {energyData.length !== 0 ?
             <>
               <EnergyTypeButton label="Electricity Energy" onClick={() => handleOnEnergySet('electricity')}/>
               <EnergyTypeButton label="Gas Energy" onClick={() => handleOnEnergySet('gas')}/>
@@ -140,7 +145,8 @@ function App() {
               <CostTypeButton label="Electricity Cost" onClick={() => handleOnCostSet('electricity')}/>
               <CostTypeButton label="Gas Cost" onClick={() => handleOnCostSet('gas')}/>
               <CostTypeButton label="Both Costs" onClick={() => handleOnCostSet('both')}/>
-            </>
+            </> :
+            null
           }
         </>
       }
