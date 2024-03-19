@@ -1,0 +1,10 @@
+.dashboard {
+  /*height: 100%;*/
+  width: 100%;
+  background-color: var(--color-dark--2);
+  display: grid;
+  grid-template-columns: auto auto;
+  /*grid-gap: 2px;*/
+  /*position: relative;*/
+  /*flex: 1;*/
+}
