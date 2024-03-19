@@ -1,11 +1,9 @@
 import ErrorMessage from "../components/ErrorMessage";
-import FileImport from "../components/FileImport";
 import AreaGraph from "./AreaGraph";
 import CorrelationCoefficient from "../components/CorrelationCoefficient";
 import EnergyTypeButton from "../components/EnergyTypeButton";
 import CostTypeButton from "../components/CostTypeButton";
 import Spinner from "./Spinner";
-import Papa from "papaparse";
 import {useEffect, useState} from "react";
 
 import styles from './Dashboard.module.css'
