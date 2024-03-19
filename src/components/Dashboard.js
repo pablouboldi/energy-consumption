@@ -153,29 +153,29 @@ function Dashboard({combinedData}) {
             dateRange={DEFAULT_DATE_RANGE}/>
 
 
-          {/*{energyData.length !== 0 ?*/}
-          {/*  <CorrelationCoefficient*/}
-          {/*    temperatures={temperatures}*/}
-          {/*    data={energyData}*/}
-          {/*    dataType={'energy'}/> : null}*/}
-          {/*{energyData.length !== 0 ?*/}
-          {/*  <CorrelationCoefficient*/}
-          {/*    temperatures={temperatures}*/}
-          {/*    data={costData}*/}
-          {/*    dataType={'cost'}/> : null}*/}
+          {energyData.length !== 0 ?
+            <CorrelationCoefficient
+              temperatures={temperatures}
+              data={energyData}
+              dataType={'energy'}/> : null}
+          {energyData.length !== 0 ?
+            <CorrelationCoefficient
+              temperatures={temperatures}
+              data={costData}
+              dataType={'cost'}/> : null}
 
-          {/*{energyData.length !== 0 ?*/}
-          {/*  <>*/}
-          {/*    <EnergyTypeButton label="Electricity Energy" onClick={() => handleOnEnergySet('electricity')}/>*/}
-          {/*    <EnergyTypeButton label="Gas Energy" onClick={() => handleOnEnergySet('gas')}/>*/}
-          {/*    <EnergyTypeButton label="Both Energies" onClick={() => handleOnEnergySet('both')}/>*/}
+          {energyData.length !== 0 ?
+            <>
+              <EnergyTypeButton label="Electricity Energy" onClick={() => handleOnEnergySet('electricity')}/>
+              <EnergyTypeButton label="Gas Energy" onClick={() => handleOnEnergySet('gas')}/>
+              <EnergyTypeButton label="Both Energies" onClick={() => handleOnEnergySet('both')}/>
 
-          {/*    <CostTypeButton label="Electricity Cost" onClick={() => handleOnCostSet('electricity')}/>*/}
-          {/*    <CostTypeButton label="Gas Cost" onClick={() => handleOnCostSet('gas')}/>*/}
-          {/*    <CostTypeButton label="Both Costs" onClick={() => handleOnCostSet('both')}/>*/}
-          {/*  </> :*/}
-          {/*  null*/}
-          {/*}*/}
+              <CostTypeButton label="Electricity Cost" onClick={() => handleOnCostSet('electricity')}/>
+              <CostTypeButton label="Gas Cost" onClick={() => handleOnCostSet('gas')}/>
+              <CostTypeButton label="Both Costs" onClick={() => handleOnCostSet('both')}/>
+            </> :
+            null
+          }
         </>
       }
     </div>
