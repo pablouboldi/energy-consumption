@@ -7,7 +7,7 @@ import {
   YAxis,
   ZAxis
 } from "recharts";
-import styles from './ScatterGraph.module.css'
+import styles from "./ScatterGraph.module.css";
 import generateDailyDates from "../tools/generateDailyDates";
 import {scatterGraphConfig} from "../tools/scatterGraphConfig";
 
@@ -36,18 +36,18 @@ function ScatterGraph({temperatures, data, dataType, dateRange}) {
 
           <YAxis
             tick={scatterGraphConfig.yTickStyle}
-            ticks={dataType === 'energy' ? scatterGraphConfig.energyTickArray : scatterGraphConfig.costTickArray}
+            ticks={dataType === "energy" ? scatterGraphConfig.energyTickArray : scatterGraphConfig.costTickArray}
             dataKey="data"
             type="number"
-            name={dataType === 'energy' ? "Energy Consumption" : "Energy Cost"}
-            label={dataType === 'energy' ? scatterGraphConfig.energyLabel : scatterGraphConfig.costLabel}/>
+            name={dataType === "energy" ? "Energy Consumption" : "Energy Cost"}
+            label={dataType === "energy" ? scatterGraphConfig.energyLabel : scatterGraphConfig.costLabel}/>
 
           <ZAxis dataKey="z" name="Date"/>
           <Scatter
             type="monotone"
-            name={dataType === 'energy' ? "Energy Consumption vs Temperature" : "Energy Cost vs Temperature"}
+            name={dataType === "energy" ? "Energy Consumption vs Temperature" : "Energy Cost vs Temperature"}
             data={chartData}
-            fill={dataType === 'energy' ? "url(#colorUv)" : "url(#colorPv)"}
+            fill={dataType === "energy" ? "url(#colorUv)" : "url(#colorPv)"}
             // lineType='fitting'
           />
 

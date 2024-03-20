@@ -1,7 +1,6 @@
-import styles from './AppNav.module.css'
+import styles from "./AppNav.module.css";
 import {NavLink} from "react-router-dom";
 import FileImport from "./FileImport";
-
 
 function AppNav({handleFileUpload}) {
   return (
@@ -15,7 +14,7 @@ function AppNav({handleFileUpload}) {
         </li>
       </ul>
     </nav>
-  )
+  );
 }
 
 export default AppNav;

@@ -1,5 +1,5 @@
 import {Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
-import styles from './AreaGraph.module.css'
+import styles from "./AreaGraph.module.css";
 import {areaGraphConfig} from "../tools/areaGraphConfig";
 import generateDailyDates from "../tools/generateDailyDates";
 
@@ -36,36 +36,36 @@ function AreaGraph({temperatures, data, dataType, dateRange}) {
             label={areaGraphConfig.dateLabel}/>
 
           <YAxis tick={areaGraphConfig.yTickStyle}
-                 yAxisId={areaGraphConfig.tempYAxisId}
-                 domain={areaGraphConfig.tempDomain}
-                 ticks={areaGraphConfig.tempTickArray}
-                 label={areaGraphConfig.tempLabel}/>
+            yAxisId={areaGraphConfig.tempYAxisId}
+            domain={areaGraphConfig.tempDomain}
+            ticks={areaGraphConfig.tempTickArray}
+            label={areaGraphConfig.tempLabel}/>
           <Area yAxisId={areaGraphConfig.tempYAxisId}
-                type="monotone"
-                dataKey="temperature"
-                name={areaGraphConfig.tempName}
-                stroke="#8884d8"
-                fillOpacity={1}
-                fill="url(#colorUv)"/>
+            type="monotone"
+            dataKey="temperature"
+            name={areaGraphConfig.tempName}
+            stroke="#8884d8"
+            fillOpacity={1}
+            fill="url(#colorUv)"/>
 
           <YAxis
             tick={areaGraphConfig.yTickStyle}
-            yAxisId={dataType === 'energy' ? areaGraphConfig.energyYAxisId : areaGraphConfig.costYAxisId}
-            domain={dataType === 'energy' ? areaGraphConfig.energyDomain : areaGraphConfig.costDomain}
-            ticks={dataType === 'energy' ? areaGraphConfig.energyTickArray : areaGraphConfig.costTickArray}
-            label={dataType === 'energy' ? areaGraphConfig.energyLabel : areaGraphConfig.costLabel}
+            yAxisId={dataType === "energy" ? areaGraphConfig.energyYAxisId : areaGraphConfig.costYAxisId}
+            domain={dataType === "energy" ? areaGraphConfig.energyDomain : areaGraphConfig.costDomain}
+            ticks={dataType === "energy" ? areaGraphConfig.energyTickArray : areaGraphConfig.costTickArray}
+            label={dataType === "energy" ? areaGraphConfig.energyLabel : areaGraphConfig.costLabel}
             orientation='right'/>
           <Area
-            yAxisId={dataType === 'energy' ? areaGraphConfig.energyYAxisId : areaGraphConfig.costYAxisId}
+            yAxisId={dataType === "energy" ? areaGraphConfig.energyYAxisId : areaGraphConfig.costYAxisId}
             type="monotone"
             dataKey='data'
-            name={dataType === 'energy' ? areaGraphConfig.energyName : areaGraphConfig.costName}
+            name={dataType === "energy" ? areaGraphConfig.energyName : areaGraphConfig.costName}
             stroke="#8884d8"
             fillOpacity={1}
             fill="url(#colorPv)"/>
 
           <Tooltip/>
-          {/*<Legend/>*/}
+          {/* <Legend/>*/}
 
         </AreaChart>
       </ResponsiveContainer>

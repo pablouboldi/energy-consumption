@@ -1,4 +1,4 @@
-import styles from './Logo.module.css'
+import styles from "./Logo.module.css";
 import {Link} from "react-router-dom";
 
 function Logo() {
@@ -6,7 +6,7 @@ function Logo() {
     <Link to='/'>
       <img src="/logo.png" alt="WorldWise logo" className={styles.logo}/>
     </Link>
-  )
+  );
 }
 
 export default Logo;
