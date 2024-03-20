@@ -1,0 +1,56 @@
+.costCorrelationCoefficientBtn {
+    position: relative;
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 2px 8px;
+    border: none;
+    font-size: 16px;
+    background-color: inherit;
+    border-radius: 20px;
+    font-weight: 600;
+    color: var(--color-cost);
+    box-shadow: 0 0 0 2px #ffffff20;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.costCorrelationCoefficientBtn:hover {
+    box-shadow: 0 0 0 5px var(--color-cost);
+    color: #ffffff;
+}
+
+.costCorrelationCoefficientBtn:active {
+    scale: 0.95;
+}
+
+.energyCorrelationCoefficientBtn {
+    position: relative;
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 2px 8px;
+    border: none;
+    font-size: 16px;
+    background-color: inherit;
+    border-radius: 20px;
+    font-weight: 600;
+    color: var(--color-energy);
+    box-shadow: 0 0 0 2px #ffffff20;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.energyCorrelationCoefficientBtn:hover {
+    box-shadow: 0 0 0 5px var(--color-energy);
+    color: #ffffff;
+}
+
+.energyCorrelationCoefficientBtn:active {
+    scale: 0.95;
+}
+
+.text {
+    font-size: 16px;
+    font-weight: 500;
+}

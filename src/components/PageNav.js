@@ -8,6 +8,9 @@ function PageNav() {
       <Logo/>
       <ul>
         <li>
+          <NavLink to='/app/dashboard'>Dashboard</NavLink>
+        </li>
+        <li>
           <NavLink to='/pricing'>Pricing</NavLink>
         </li>
         <li>

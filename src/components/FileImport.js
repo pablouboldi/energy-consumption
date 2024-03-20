@@ -3,15 +3,23 @@ import styles from "./FileImport.module.css";
 function FileImport({handleFileUpload}) {
   const accountNumber = process.env.REACT_APP_ACCOUNT_NUMBER;
   return (
-    <div className={styles.fileImportBtn}>
-      <label htmlFor="image_uploads">Find the files to download <a
-        href={`https://edfenergy.com/myaccount/accounts/${accountNumber}/energy-hub`}
-        target='_blank' rel="noreferrer"
-      >here</a>
-      </label>
+    <div className={styles.importContainer}>
+      <p className={styles.text}>
+        Find the files to download <a href={`https://edfenergy.com/myaccount/accounts/${accountNumber}/energy-hub`}
+                                      target="_blank" rel="noreferrer">here</a>
+      </p>
 
-      <input role='button' multiple={true} type="file" accept=".csv" onChange={handleFileUpload}
-        className={styles.fileImportBtn}/>
+      <label
+        htmlFor="files-upload"
+        className={styles.fileImportBtn}>
+        Browse files
+      </label>
+      <input
+        id="files-upload"
+        multiple={true}
+        type="file"
+        accept=".csv"
+        onChange={handleFileUpload}/>
     </div>
   );
 }

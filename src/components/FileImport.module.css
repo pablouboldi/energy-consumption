@@ -1,7 +1,18 @@
+.importContainer {
+    margin-top: 2rem;
+}
+
+.text {
+
+}
+
+input[type="file"] {
+    display: none;
+}
+
 .fileImportBtn {
     align-items: center;
-    background-color: initial;
-    background-image: linear-gradient(#464d55, #25292e);
+    background-color: var(--color-light--1);
     border-radius: 8px;
     border-width: 0;
     box-shadow: 0 10px 20px rgba(0, 0, 0, .1), 0 3px 6px rgba(0, 0, 0, .05);
@@ -12,13 +23,13 @@
     flex-direction: column;
     font-family: expo-brand-demi, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 18px;
-    height: 52px;
+    height: 40px;
     justify-content: center;
     line-height: 1;
     margin: 10px;
     outline: none;
     overflow: hidden;
-    padding: 0 32px;
+    padding: 0 20px;
     text-align: center;
     text-decoration: none;
     transform: translate3d(0, 0, 0);

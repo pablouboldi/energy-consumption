@@ -2,12 +2,21 @@
   --color-brand--1: #ffb545;
   --color-brand--2: #00c46a;
 
-  --color-dark--0: #242a2e;
-  --color-dark--1: #2d3439;
-  --color-dark--2: #42484d;
+  /*--color-dark--0: #242a2e;*/
+  /*--color-dark--1: #2d3439;*/
+  /*--color-dark--2: #42484d;*/
+  /*--color-light--1: #aaa;*/
+  /*--color-light--2: #ececec;*/
+  /*--color-light--3: #d6dee0;*/
+  --color-dark--0: #111418;
+  --color-dark--1: #31363F;
+  --color-dark--2: #222831;
   --color-light--1: #aaa;
   --color-light--2: #ececec;
   --color-light--3: #d6dee0;
+
+  --color-energy: #688CB6;
+  --color-cost: #82ca9d
 }
 
 * {

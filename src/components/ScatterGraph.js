@@ -31,6 +31,7 @@ function ScatterGraph({temperatures, data, dataType, dateRange}) {
             domain={scatterGraphConfig.tempDomain}
             dataKey="temperature"
             type="number"
+            unit=""
             name="Temperature"
             label={scatterGraphConfig.tempLabel}/>
 
@@ -39,6 +40,7 @@ function ScatterGraph({temperatures, data, dataType, dateRange}) {
             ticks={dataType === "energy" ? scatterGraphConfig.energyTickArray : scatterGraphConfig.costTickArray}
             dataKey="data"
             type="number"
+            unit=""
             name={dataType === "energy" ? "Energy Consumption" : "Energy Cost"}
             label={dataType === "energy" ? scatterGraphConfig.energyLabel : scatterGraphConfig.costLabel}/>
 
@@ -47,7 +49,7 @@ function ScatterGraph({temperatures, data, dataType, dateRange}) {
             type="monotone"
             name={dataType === "energy" ? "Energy Consumption vs Temperature" : "Energy Cost vs Temperature"}
             data={chartData}
-            fill={dataType === "energy" ? "url(#colorUv)" : "url(#colorPv)"}
+            fill={dataType === "energy" ? "#688CB6" : "#82ca9d"}
             // lineType='fitting'
           />
 

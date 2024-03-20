@@ -1,4 +1,5 @@
 import {useState} from "react";
+import styles from "./CorrelationCoefficient.module.css";
 
 function CorrelationCoefficient({temperatures, data, dataType}) {
   const [corrCoef, setCorrCoef] = useState(null);
@@ -41,12 +42,14 @@ function CorrelationCoefficient({temperatures, data, dataType}) {
   }
 
   return (
-    <div>
-      <button onClick={() => correlationCoefficient(temperatures, data)}>
+    <>
+      <button
+        onClick={() => correlationCoefficient(temperatures, data)}
+        className={dataType === "energy" ? styles.energyCorrelationCoefficientBtn : styles.costCorrelationCoefficientBtn}>
         Find correlation
       </button>
-      <p>{corrCoef}</p>
-    </div>
+      <span className={styles.text}>{corrCoef && corrCoef.toFixed(3)}</span>
+    </>
   );
 }
 
