@@ -1,4 +1,4 @@
-import styles from './AppLayout.module.css'
+import styles from "./AppLayout.module.css";
 import Dashboard from "../components/Dashboard";
 import Sidebar from "../components/Sidebar";
 import Papa from "papaparse";
@@ -40,7 +40,7 @@ function AppLayout() {
       <Sidebar handleFileUpload={handleFileUpload}/>
       <Dashboard combinedData={combinedData}/>
     </div>
-  )
+  );
 }
 
 export default AppLayout;

@@ -4,10 +4,10 @@ export default function generateDailyDates(startDate, endDate) {
   const endDateObj = new Date(endDate);
 
   while (currentDate <= endDateObj) {
-    const formattedDate = currentDate.toLocaleString('en-US', {
-      weekday: 'long',
-      day: 'numeric',
-      month: 'short'
+    const formattedDate = currentDate.toLocaleString("en-US", {
+      weekday: "long",
+      day: "numeric",
+      month: "short"
     });
 
     dateArray.push(formattedDate);

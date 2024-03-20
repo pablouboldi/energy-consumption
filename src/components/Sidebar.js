@@ -1,11 +1,13 @@
-import styles from './Sidebar.module.css'
+import styles from "./Sidebar.module.css";
 import AppNav from "./AppNav";
 import Logo from "./Logo";
+import FileImport from "./FileImport";
 
 function Sidebar({handleFileUpload}) {
   return (
     <div className={styles.sidebar}>
       <Logo/>
+      <FileImport handleFileUpload={handleFileUpload}/>
       <AppNav handleFileUpload={handleFileUpload}/>
 
       <footer className={styles.footer}>
@@ -14,7 +16,7 @@ function Sidebar({handleFileUpload}) {
         </p>
       </footer>
     </div>
-  )
+  );
 }
 
 export default Sidebar;

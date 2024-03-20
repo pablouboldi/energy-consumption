@@ -1,4 +1,4 @@
-import styles from './CostTypeButton.module.css'
+import styles from "./CostTypeButton.module.css";
 
 function CostTypeButton({label, onClick}) {
 
@@ -6,7 +6,7 @@ function CostTypeButton({label, onClick}) {
     <button onClick={onClick} className={styles.costTypeBtn}>
       {label}
     </button>
-  )
+  );
 }
 
 export default CostTypeButton;
