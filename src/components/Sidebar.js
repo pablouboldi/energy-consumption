@@ -7,8 +7,10 @@ function Sidebar({handleFileUpload}) {
   return (
     <div className={styles.sidebar}>
       <Logo/>
-      <FileImport handleFileUpload={handleFileUpload}/>
+
       <AppNav handleFileUpload={handleFileUpload}/>
+
+      <FileImport handleFileUpload={handleFileUpload}/>
 
       <footer className={styles.footer}>
         <p className={styles.copyright}>

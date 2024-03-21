@@ -1,0 +1,17 @@
+.customTooltip {
+    background: var(--color-dark--2);
+    font-size: 1.2rem;
+}
+
+.energyValue {
+    color: var(--color-brand--2);
+}
+
+.costValue {
+    color: var(--color-brand--1);
+}
+
+.energyValue, .costValue {
+    display: inline-block;
+    padding: 5px;
+}

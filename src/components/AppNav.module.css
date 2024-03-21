@@ -4,8 +4,12 @@
 
 .nav ul {
   list-style: none;
+}
+
+.nav a {
   background-color: var(--color-dark--2);
   border-radius: 7px;
+  margin: 2rem 0;
 }
 
 .nav a:link,
@@ -17,12 +21,13 @@
   font-size: 1.7rem;
   font-weight: 700;
   padding: 1.5rem 3rem;
-  border-radius: 5px;
+  border-radius: 7px;
 }
 
 /* CSS Modules feature */
 .nav a:global(.active) {
   background-color: var(--color-dark--0);
+  border-radius: 50px 7px 7px 50px;
 }
 
 .icon {

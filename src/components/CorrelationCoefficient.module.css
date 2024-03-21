@@ -8,7 +8,7 @@
     background-color: inherit;
     border-radius: 20px;
     font-weight: 600;
-    color: var(--color-cost);
+    color: var(--color-brand--1);
     box-shadow: 0 0 0 2px #ffffff20;
     cursor: pointer;
     overflow: hidden;
@@ -16,7 +16,7 @@
 }
 
 .costCorrelationCoefficientBtn:hover {
-    box-shadow: 0 0 0 5px var(--color-cost);
+    box-shadow: 0 0 0 5px var(--color-brand--1);
     color: #ffffff;
 }
 
@@ -34,7 +34,7 @@
     background-color: inherit;
     border-radius: 20px;
     font-weight: 600;
-    color: var(--color-energy);
+    color: var(--color-brand--2);
     box-shadow: 0 0 0 2px #ffffff20;
     cursor: pointer;
     overflow: hidden;
@@ -42,7 +42,7 @@
 }
 
 .energyCorrelationCoefficientBtn:hover {
-    box-shadow: 0 0 0 5px var(--color-energy);
+    box-shadow: 0 0 0 5px var(--color-brand--2);
     color: #ffffff;
 }
 

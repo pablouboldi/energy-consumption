@@ -10,6 +10,7 @@ import {
 import styles from "./ScatterGraph.module.css";
 import generateDailyDates from "../tools/generateDailyDates";
 import {scatterGraphConfig} from "../tools/scatterGraphConfig";
+import ScatterTooltip from "./ScatterTooltip";
 
 function ScatterGraph({temperatures, data, dataType, dateRange}) {
 
@@ -17,7 +18,7 @@ function ScatterGraph({temperatures, data, dataType, dateRange}) {
     .map((day, index) => ({
       temperature: parseFloat(temperatures[index]).toFixed(2),
       data: data ? parseFloat(data[index]).toFixed(2) : null,
-      z: day
+      date: day
     }));
 
   return (
@@ -27,33 +28,36 @@ function ScatterGraph({temperatures, data, dataType, dateRange}) {
           data={chartData}
           margin={scatterGraphConfig.areaMargin}>
           <XAxis
+            minTickGap={50}
             tick={scatterGraphConfig.xTickStyle}
-            domain={scatterGraphConfig.tempDomain}
-            dataKey="temperature"
-            type="number"
-            unit=""
-            name="Temperature"
-            label={scatterGraphConfig.tempLabel}/>
-
-          <YAxis
-            tick={scatterGraphConfig.yTickStyle}
             ticks={dataType === "energy" ? scatterGraphConfig.energyTickArray : scatterGraphConfig.costTickArray}
             dataKey="data"
             type="number"
-            unit=""
+            unit={dataType === "energy" ? " kWh" : " £"}
             name={dataType === "energy" ? "Energy Consumption" : "Energy Cost"}
             label={dataType === "energy" ? scatterGraphConfig.energyLabel : scatterGraphConfig.costLabel}/>
 
-          <ZAxis dataKey="z" name="Date"/>
+          <YAxis
+            tick={scatterGraphConfig.yTickStyle}
+            domain={scatterGraphConfig.tempDomain}
+            dataKey="temperature"
+            type="number"
+            unit="°C"
+            name="Temperature"
+            label={scatterGraphConfig.tempLabel}/>
+
+          <ZAxis dataKey="date" name="Date"/>
           <Scatter
+            isAnimationActive={false}
             type="monotone"
+            line
             name={dataType === "energy" ? "Energy Consumption vs Temperature" : "Energy Cost vs Temperature"}
             data={chartData}
             fill={dataType === "energy" ? "#688CB6" : "#82ca9d"}
-            // lineType='fitting'
+            lineType='fitting'
           />
 
-          <Tooltip/>
+          <Tooltip content={<ScatterTooltip dataType={dataType} />} cursor={{ fill: "transparent" }}/>
         </ScatterChart>
       </ResponsiveContainer>
     </div>

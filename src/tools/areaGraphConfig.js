@@ -6,21 +6,23 @@ export const areaGraphConfig = {
 
   dateLabel: {value: "Date", position: "bottom"},
 
-  tempName: "temperature",
+  tempName: "Temperature",
   tempYAxisId: "temperature",
   tempTickArray: Array.from({length: 20}, (_, index) => -5 + index),
   tempDomain: [-6, 16],
-  tempLabel: {value: "Temperature (°C)", angle: -90, position: "left", offset: -20},
+  tempLabel: {value: "Temperature", angle: -90, position: "left", offset: -20},
 
-  energyName: "energy",
+  energyName: "Energy",
   energyYAxisId: "energy",
   energyTickArray: Array.from({length: 120}, (_, index) => index),
   energyDomain: [-50, 120],
-  energyLabel: {value: "Energy (kWh)", angle: -90, position: "right", offset: -20},
+  energyLabel: {value: "Energy", angle: -90, position: "right", offset: -0},
+  energyColor: "#688CB6",
 
-  costName: "cost",
+  costName: "Cost",
   costYAxisId: "cost",
   costTickArray: Array.from({length: 16}, (_, index) => index),
   costDomain: [-5, 16],
-  costLabel: {value: "Cost (£)", angle: -90, position: "right", offset: -20},
+  costLabel: {value: "Cost", angle: -90, position: "right", offset: -20},
+  costColor: "#82ca9d",
 };
