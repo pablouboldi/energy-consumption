@@ -2,14 +2,15 @@ import {Area, AreaChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recha
 import styles from "./AreaGraph.module.css";
 import {areaGraphConfig} from "../tools/areaGraphConfig";
 import generateDailyDates from "../tools/generateDailyDates";
+import AreaTooltip from "./AreaTooltip";
 
 function AreaGraph({temperatures, data, dataType, dateRange}) {
 
   const chartData = generateDailyDates(dateRange.start, dateRange.end)
-    .map((day, index) => ({
-      day: day,
+    .map((date, index) => ({
+      date: date,
       temperature: parseFloat(temperatures[index]).toFixed(2),
-      data: data ? parseFloat(data[index]).toFixed(2) : null
+      data: data && parseFloat(data[index]).toFixed(2)
     }));
 
   return (
@@ -24,15 +25,19 @@ function AreaGraph({temperatures, data, dataType, dateRange}) {
               <stop offset="95%" stopColor="#fff" stopOpacity={0}/>
             </linearGradient>
             <linearGradient id="data" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor={dataType === "energy" ? "#688CB6" : "#82ca9d"} stopOpacity={1}/>
-              <stop offset="95%" stopColor={dataType === "energy" ? "#688CB6" : "#82ca9d"} stopOpacity={0}/>
+              <stop offset="5%"
+                    stopColor={dataType === "energy" ? areaGraphConfig.energyColor : areaGraphConfig.costColor}
+                    stopOpacity={1}/>
+              <stop offset="95%"
+                    stopColor={dataType === "energy" ? areaGraphConfig.energyColor : areaGraphConfig.costColor}
+                    stopOpacity={0}/>
             </linearGradient>
           </defs>
           <XAxis
             minTickGap={50}
             tick={areaGraphConfig.xTickStyle}
             tickCount={10}
-            dataKey="day"
+            dataKey="date"
             label={areaGraphConfig.dateLabel}/>
 
           <YAxis
@@ -40,7 +45,9 @@ function AreaGraph({temperatures, data, dataType, dateRange}) {
             yAxisId={areaGraphConfig.tempYAxisId}
             domain={areaGraphConfig.tempDomain}
             ticks={areaGraphConfig.tempTickArray}
-            label={areaGraphConfig.tempLabel}/>
+            label={areaGraphConfig.tempLabel}
+            type="number"
+            unit="°C"/>
           <Area
             yAxisId={areaGraphConfig.tempYAxisId}
             type="monotone"
@@ -56,18 +63,19 @@ function AreaGraph({temperatures, data, dataType, dateRange}) {
             domain={dataType === "energy" ? areaGraphConfig.energyDomain : areaGraphConfig.costDomain}
             ticks={dataType === "energy" ? areaGraphConfig.energyTickArray : areaGraphConfig.costTickArray}
             label={dataType === "energy" ? areaGraphConfig.energyLabel : areaGraphConfig.costLabel}
+            type="number"
+            unit={dataType === "energy" ? " kWh" : " £"}
             orientation="right"/>
           <Area
             yAxisId={dataType === "energy" ? areaGraphConfig.energyYAxisId : areaGraphConfig.costYAxisId}
             type="monotone"
             dataKey="data"
             name={dataType === "energy" ? areaGraphConfig.energyName : areaGraphConfig.costName}
-            stroke={dataType === "energy" ? "#688CB6" : "#82ca9d"}
+            stroke={dataType === "energy" ? areaGraphConfig.energyColor : areaGraphConfig.costColor}
             fillOpacity={1}
             fill="url(#data)"/>
 
-          <Tooltip/>
-          {/* <Legend/>*/}
+          <Tooltip content={<AreaTooltip dataType={dataType}/>} cursor={{fill: "transparent"}}/>
 
         </AreaChart>
       </ResponsiveContainer>

@@ -48,7 +48,9 @@ function CorrelationCoefficient({temperatures, data, dataType}) {
         className={dataType === "energy" ? styles.energyCorrelationCoefficientBtn : styles.costCorrelationCoefficientBtn}>
         Find correlation
       </button>
-      <span className={styles.text}>{corrCoef && corrCoef.toFixed(3)}</span>
+      {corrCoef &&
+        <span className={styles.text}>{corrCoef.toFixed(3)}</span>
+      }
     </>
   );
 }
